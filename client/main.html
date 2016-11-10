@@ -1,0 +1,35 @@
+<head>
+  <title>angularTimeline</title>
+  <style type="text/css">
+	.scroller {
+	    height: 500px;
+	}
+  </style>
+</head>
+
+<body data-ng-app="app" data-ng-controller="mainCtrl as vm">
+	{{title}}
+		<timeline>
+		   <perfect-scrollbar id="scrollContainer" class="scroller"
+                             wheel-propagation="true"
+                             wheel-speed="1"
+                             min-scrollbar-length="20"
+                             suppress-scroll-x="true">
+		    <timeline-event ng-repeat="event in events" side="{{side}}">
+		      <timeline-badge class="{{event.badgeClass}} timeline-hidden"
+		      when-visible="animateElementIn" when-not-visible="animateElementOut" scroll-container="#scrollContainer">
+		        <i class="glyphicon {{event.badgeIconClass}} timeline-hidden"></i>
+		      </timeline-badge>
+		      <timeline-panel class="{{event.badgeClass}} timeline-hidden"  
+		      when-visible="animateElementIn" when-not-visible="animateElementOut" scroll-container="#scrollContainer">
+		        <timeline-heading>
+		          <h4>{{event.title}}</h4>
+		        </timeline-heading>
+		        <p>{{event.content}}</p>
+		      </timeline-panel>
+		    </timeline-event>
+		     </perfect-scrollbar>
+ 		 </timeline>
+ <!--<p>scrollTop:{{scrollTop}}, scrollHeight:{{scrollHeight}}</p>-->
+</body>
+

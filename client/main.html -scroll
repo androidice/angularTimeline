@@ -1,0 +1,46 @@
+<head>
+  <title>angularTimeline</title>
+  <style type="text/css">
+/*  .wrapper {
+  width: 100%;
+  margin: 0 auto;
+  }
+  .item {
+  width: 100px;
+  height: 200px;
+  display: inline-block;
+  }
+*/
+.row {
+  width: 100%;
+  margin: 0 auto;
+}
+.block {
+  width: 200px;
+  display: inline-block;
+}
+.block span{
+  display: block;
+}
+#course-timeline-horizontal-scroll {
+    white-space: nowrap;
+    width: 500px;
+    height: 200px;
+    overflow-x: hidden;
+    position: relative;
+}
+  </style>
+
+</head>
+
+<body data-ng-app="app" data-ng-controller="mainCtrl as vm">
+	 <div class="row">
+	 	<perfect-scrollbar id="course-timeline-horizontal-scroll" class="scroller" wheel-propagation="true" wheel-speed="1" min-scrollbar-length="20">
+        <div class="block" ng-repeat="event in events track by $index">
+            <span ng-bind="event.title"></span>
+            <span ng-bind="event.content"></span>
+        </div>
+     </perfect-scrollbar>
+  </div>
+</body>
+
